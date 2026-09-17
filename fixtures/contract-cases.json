@@ -1,0 +1,103 @@
+[
+  {
+    "name": "valid input",
+    "valid": true,
+    "payload": {
+      "resume_text": "ASHA RAO\nBengaluru, India | asha.rao@example.com | +91 90000 00000\n\nExperience\nMarketing Intern | Northstar Studio (fictional)\nJun 2025 - Aug 2026\n- I assisted with Google Ads campaigns with a monthly budget of \u20b920,000.\n- I created monthly reports using Excel and Google Analytics.\n- I designed social media posts using Canva.\n\nSkills\nGoogle Ads, Excel, Google Analytics, Canva, content strategy\n\nEducation\nB.Com | Example University | 2025\nCGPA: 8.2/10\n\nProjects\nCampaign Reporting Dashboard\n- I built a campaign reporting dashboard using Google Sheets.",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": true,
+      "processing_consent": true
+    }
+  },
+  {
+    "name": "numeric consent",
+    "valid": false,
+    "payload": {
+      "resume_text": "ASHA RAO\nBengaluru, India | asha.rao@example.com | +91 90000 00000\n\nExperience\nMarketing Intern | Northstar Studio (fictional)\nJun 2025 - Aug 2026\n- I assisted with Google Ads campaigns with a monthly budget of \u20b920,000.\n- I created monthly reports using Excel and Google Analytics.\n- I designed social media posts using Canva.\n\nSkills\nGoogle Ads, Excel, Google Analytics, Canva, content strategy\n\nEducation\nB.Com | Example University | 2025\nCGPA: 8.2/10\n\nProjects\nCampaign Reporting Dashboard\n- I built a campaign reporting dashboard using Google Sheets.",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": 1,
+      "processing_consent": true
+    }
+  },
+  {
+    "name": "string consent",
+    "valid": false,
+    "payload": {
+      "resume_text": "ASHA RAO\nBengaluru, India | asha.rao@example.com | +91 90000 00000\n\nExperience\nMarketing Intern | Northstar Studio (fictional)\nJun 2025 - Aug 2026\n- I assisted with Google Ads campaigns with a monthly budget of \u20b920,000.\n- I created monthly reports using Excel and Google Analytics.\n- I designed social media posts using Canva.\n\nSkills\nGoogle Ads, Excel, Google Analytics, Canva, content strategy\n\nEducation\nB.Com | Example University | 2025\nCGPA: 8.2/10\n\nProjects\nCampaign Reporting Dashboard\n- I built a campaign reporting dashboard using Google Sheets.",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": "true",
+      "processing_consent": true
+    }
+  },
+  {
+    "name": "no processing consent",
+    "valid": false,
+    "payload": {
+      "resume_text": "ASHA RAO\nBengaluru, India | asha.rao@example.com | +91 90000 00000\n\nExperience\nMarketing Intern | Northstar Studio (fictional)\nJun 2025 - Aug 2026\n- I assisted with Google Ads campaigns with a monthly budget of \u20b920,000.\n- I created monthly reports using Excel and Google Analytics.\n- I designed social media posts using Canva.\n\nSkills\nGoogle Ads, Excel, Google Analytics, Canva, content strategy\n\nEducation\nB.Com | Example University | 2025\nCGPA: 8.2/10\n\nProjects\nCampaign Reporting Dashboard\n- I built a campaign reporting dashboard using Google Sheets.",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": true,
+      "processing_consent": false
+    }
+  },
+  {
+    "name": "numeric resume",
+    "valid": false,
+    "payload": {
+      "resume_text": 123,
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": true,
+      "processing_consent": true
+    }
+  },
+  {
+    "name": "blank resume",
+    "valid": false,
+    "payload": {
+      "resume_text": "     ",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": true,
+      "processing_consent": true
+    }
+  },
+  {
+    "name": "control character",
+    "valid": false,
+    "payload": {
+      "resume_text": "Text with \u0000 hidden control",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": true,
+      "processing_consent": true
+    }
+  },
+  {
+    "name": "unexpected field",
+    "valid": false,
+    "payload": {
+      "resume_text": "ASHA RAO\nBengaluru, India | asha.rao@example.com | +91 90000 00000\n\nExperience\nMarketing Intern | Northstar Studio (fictional)\nJun 2025 - Aug 2026\n- I assisted with Google Ads campaigns with a monthly budget of \u20b920,000.\n- I created monthly reports using Excel and Google Analytics.\n- I designed social media posts using Canva.\n\nSkills\nGoogle Ads, Excel, Google Analytics, Canva, content strategy\n\nEducation\nB.Com | Example University | 2025\nCGPA: 8.2/10\n\nProjects\nCampaign Reporting Dashboard\n- I built a campaign reporting dashboard using Google Sheets.",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": true,
+      "processing_consent": true,
+      "ats_score": 100
+    }
+  },
+  {
+    "name": "unicode name",
+    "valid": true,
+    "payload": {
+      "resume_text": "Jos\u00e9 N\u00fa\u00f1ez\nSkills\nPython",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": true,
+      "processing_consent": true
+    }
+  },
+  {
+    "name": "astral Unicode",
+    "valid": true,
+    "payload": {
+      "resume_text": "Name \ud83c\udf0d\nSkills\nPython",
+      "job_description": "Digital Marketing Executive\nGoogle Ads and Meta Ads\nExcel or Google Sheets\nGoogle Analytics\nConversion tracking\nCanva\nSEO\nContent strategy\n2 years of marketing experience",
+      "adult_confirmed": true,
+      "processing_consent": true
+    }
+  }
+]

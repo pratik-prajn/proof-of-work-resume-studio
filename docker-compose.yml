@@ -1,0 +1,66 @@
+services:
+  api:
+    build: ./apps/api
+    environment:
+      APP_ENV: production
+      INTERNAL_API_KEY: ${INTERNAL_API_KEY:?Run python scripts/setup.py first}
+      API_TOKEN_SECRET: ${API_TOKEN_SECRET:?Run python scripts/setup.py first}
+      PDF_ENGINE: ${PDF_ENGINE:-typst}
+      ENABLE_HISTORY: ${ENABLE_HISTORY:-false}
+      DATABASE_URL: ${DATABASE_URL:-sqlite:////data/studio.db}
+      HISTORY_ENCRYPTION_KEY: ${HISTORY_ENCRYPTION_KEY:-}
+      ENABLE_GITHUB_INSPECTOR: ${ENABLE_GITHUB_INSPECTOR:-false}
+      LLM_BASE_URL: ${LLM_BASE_URL:-}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-}
+    volumes:
+      - studio-data:/data
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 1536m
+    cpus: 2
+    restart: unless-stopped
+    networks: [studio]
+  web:
+    build: ./apps/web
+    environment:
+      API_BASE_URL: http://api:8000
+      APP_ORIGIN: ${APP_ORIGIN:-http://localhost:3000}
+      INTERNAL_API_KEY: ${INTERNAL_API_KEY:?Run setup first}
+      API_TOKEN_SECRET: ${API_TOKEN_SECRET:?Run setup first}
+      AUTH_SECRET: ${AUTH_SECRET:?Run setup first}
+      AUTH_URL: ${AUTH_URL:-http://localhost:3000}
+      AUTH_TRUST_HOST: "true"
+      AUTH_GITHUB_ID: ${AUTH_GITHUB_ID:-}
+      AUTH_GITHUB_SECRET: ${AUTH_GITHUB_SECRET:-}
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      api:
+        condition: service_healthy
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 768m
+    restart: unless-stopped
+    networks: [studio]
+  db:
+    profiles: [history]
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: studio
+      POSTGRES_USER: studio
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run setup first}
+    volumes: ["postgres-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U studio -d studio"]
+      interval: 5s
+      retries: 12
+    restart: unless-stopped
+    networks: [studio]
+volumes:
+  studio-data:
+  postgres-data:
+networks:
+  studio:

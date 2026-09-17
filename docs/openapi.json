@@ -1,0 +1,1104 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Proof-of-Work Resume Studio",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/config": {
+      "get": {
+        "summary": "Config",
+        "operationId": "config_v1_config_get",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/analyze": {
+      "post": {
+        "summary": "Analyze Route",
+        "operationId": "analyze_route_v1_analyze_post",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyzeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/rewrite": {
+      "post": {
+        "summary": "Rewrite",
+        "operationId": "rewrite_v1_rewrite_post",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RewriteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/guard": {
+      "post": {
+        "summary": "Guard",
+        "operationId": "guard_v1_guard_post",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuardRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/export/pdf": {
+      "post": {
+        "summary": "Export Pdf",
+        "operationId": "export_pdf_v1_export_pdf_post",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/import/pdf": {
+      "post": {
+        "summary": "Import Pdf",
+        "operationId": "import_pdf_v1_import_pdf_post",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_import_pdf_v1_import_pdf_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/evidence/notebook": {
+      "post": {
+        "summary": "Notebook",
+        "operationId": "notebook_v1_evidence_notebook_post",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_notebook_v1_evidence_notebook_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/evidence/github": {
+      "post": {
+        "summary": "Github",
+        "operationId": "github_v1_evidence_github_post",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InspectRepoRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history": {
+      "get": {
+        "summary": "History",
+        "operationId": "history_v1_history_get",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Save History",
+        "operationId": "save_history_v1_history_post",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveDraftRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete All History",
+        "operationId": "delete_all_history_v1_history_delete",
+        "parameters": [
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history/{draft_id}": {
+      "get": {
+        "summary": "Get History",
+        "operationId": "get_history_v1_history__draft_id__get",
+        "parameters": [
+          {
+            "name": "draft_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Draft Id"
+            }
+          },
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete History",
+        "operationId": "delete_history_v1_history__draft_id__delete",
+        "parameters": [
+          {
+            "name": "draft_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Draft Id"
+            }
+          },
+          {
+            "name": "x-internal-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Internal-Key"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalyzeRequest": {
+        "properties": {
+          "resume_text": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 10,
+            "title": "Resume Text"
+          },
+          "job_description": {
+            "type": "string",
+            "maxLength": 30000,
+            "minLength": 10,
+            "title": "Job Description"
+          },
+          "adult_confirmed": {
+            "type": "boolean",
+            "const": true,
+            "title": "Adult Confirmed"
+          },
+          "processing_consent": {
+            "type": "boolean",
+            "const": true,
+            "title": "Processing Consent"
+          },
+          "decisions": {
+            "items": {
+              "$ref": "#/components/schemas/RequirementDecision"
+            },
+            "type": "array",
+            "maxItems": 200,
+            "title": "Decisions"
+          },
+          "requirements_reviewed": {
+            "type": "boolean",
+            "title": "Requirements Reviewed",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "resume_text",
+          "job_description",
+          "adult_confirmed",
+          "processing_consent"
+        ],
+        "title": "AnalyzeRequest"
+      },
+      "Body_import_pdf_v1_import_pdf_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_import_pdf_v1_import_pdf_post"
+      },
+      "Body_notebook_v1_evidence_notebook_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_notebook_v1_evidence_notebook_post"
+      },
+      "ExportRequest": {
+        "properties": {
+          "resume_text": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 10,
+            "title": "Resume Text"
+          },
+          "job_description": {
+            "type": "string",
+            "maxLength": 30000,
+            "minLength": 10,
+            "title": "Job Description"
+          },
+          "adult_confirmed": {
+            "type": "boolean",
+            "const": true,
+            "title": "Adult Confirmed"
+          },
+          "processing_consent": {
+            "type": "boolean",
+            "const": true,
+            "title": "Processing Consent"
+          },
+          "source_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Source Hash"
+          },
+          "overrides": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "maxProperties": 200,
+            "title": "Overrides"
+          },
+          "template": {
+            "type": "string",
+            "enum": [
+              "professional",
+              "fresher"
+            ],
+            "title": "Template",
+            "default": "professional"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "resume_text",
+          "job_description",
+          "adult_confirmed",
+          "processing_consent",
+          "source_hash"
+        ],
+        "title": "ExportRequest"
+      },
+      "GuardRequest": {
+        "properties": {
+          "resume_text": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 10,
+            "title": "Resume Text"
+          },
+          "job_description": {
+            "type": "string",
+            "maxLength": 30000,
+            "minLength": 10,
+            "title": "Job Description"
+          },
+          "adult_confirmed": {
+            "type": "boolean",
+            "const": true,
+            "title": "Adult Confirmed"
+          },
+          "processing_consent": {
+            "type": "boolean",
+            "const": true,
+            "title": "Processing Consent"
+          },
+          "source_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Source Hash"
+          },
+          "block_id": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Block Id"
+          },
+          "candidate": {
+            "type": "string",
+            "maxLength": 3000,
+            "minLength": 1,
+            "title": "Candidate"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "resume_text",
+          "job_description",
+          "adult_confirmed",
+          "processing_consent",
+          "source_hash",
+          "block_id",
+          "candidate"
+        ],
+        "title": "GuardRequest"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "InspectRepoRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "maxLength": 300,
+            "title": "Url"
+          },
+          "adult_confirmed": {
+            "type": "boolean",
+            "const": true,
+            "title": "Adult Confirmed"
+          },
+          "network_consent": {
+            "type": "boolean",
+            "const": true,
+            "title": "Network Consent"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "url",
+          "adult_confirmed",
+          "network_consent"
+        ],
+        "title": "InspectRepoRequest"
+      },
+      "RequirementDecision": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Id"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "include",
+              "exclude"
+            ],
+            "title": "Decision"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 300,
+            "title": "Reason",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "decision"
+        ],
+        "title": "RequirementDecision"
+      },
+      "RewriteRequest": {
+        "properties": {
+          "resume_text": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 10,
+            "title": "Resume Text"
+          },
+          "job_description": {
+            "type": "string",
+            "maxLength": 30000,
+            "minLength": 10,
+            "title": "Job Description"
+          },
+          "adult_confirmed": {
+            "type": "boolean",
+            "const": true,
+            "title": "Adult Confirmed"
+          },
+          "processing_consent": {
+            "type": "boolean",
+            "const": true,
+            "title": "Processing Consent"
+          },
+          "source_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Source Hash"
+          },
+          "use_llm": {
+            "type": "boolean",
+            "title": "Use Llm",
+            "default": false
+          },
+          "llm_consent": {
+            "type": "boolean",
+            "title": "Llm Consent",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "resume_text",
+          "job_description",
+          "adult_confirmed",
+          "processing_consent",
+          "source_hash"
+        ],
+        "title": "RewriteRequest"
+      },
+      "SaveDraftRequest": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "storage_consent": {
+            "type": "boolean",
+            "const": true,
+            "title": "Storage Consent"
+          },
+          "workspace": {
+            "$ref": "#/components/schemas/Workspace"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "title",
+          "storage_consent",
+          "workspace"
+        ],
+        "title": "SaveDraftRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "Workspace": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0.0",
+            "title": "Schema Version",
+            "default": "1.0.0"
+          },
+          "resume_text": {
+            "type": "string",
+            "maxLength": 20000,
+            "title": "Resume Text"
+          },
+          "job_description": {
+            "type": "string",
+            "maxLength": 30000,
+            "title": "Job Description"
+          },
+          "template": {
+            "type": "string",
+            "enum": [
+              "professional",
+              "fresher"
+            ],
+            "title": "Template",
+            "default": "professional"
+          },
+          "decisions": {
+            "items": {
+              "$ref": "#/components/schemas/RequirementDecision"
+            },
+            "type": "array",
+            "maxItems": 200,
+            "title": "Decisions"
+          },
+          "requirements_reviewed": {
+            "type": "boolean",
+            "title": "Requirements Reviewed",
+            "default": false
+          },
+          "overrides": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "maxProperties": 200,
+            "title": "Overrides"
+          },
+          "source_hash": {
+            "type": "string",
+            "title": "Source Hash",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "resume_text",
+          "job_description"
+        ],
+        "title": "Workspace"
+      }
+    }
+  }
+}
